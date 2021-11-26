@@ -1,15 +1,11 @@
 pipeline {
-    agent {
-        6cf943e42bbe {
-            image 'maven:3.8.1-adoptopenjdk-11' 
-            args '-v /root/.m2:/root/.m2' 
-        }
-    }
+    agent any
+
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package' 
-            }
+                sh '/var/jenkins_home/apache-maven-3.8.4/bin/mvn --version'
+               }
         }
     }
 }
